@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\select;
+
 class ProductsController extends Controller
 {
     /**
@@ -12,23 +14,23 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        return Products::select('name', 'description');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // validate input data coming from the request
+        $request->validate([
+            'title'=> "required",
+            'description'=> "required",
+        ]);
+
+        $products = new Products();
+        $products->title = $request->input("title");
+        $products->description = $request->input("description");
+        $products->save();
+
+        return response()->json(['message'=>"products add sucsseful"]);
     }
 
     /**
@@ -36,7 +38,7 @@ class ProductsController extends Controller
      */
     public function show(Products $products)
     {
-        //
+            return $products::all();
     }
 
     /**
@@ -60,6 +62,11 @@ class ProductsController extends Controller
      */
     public function destroy(Products $products)
     {
-        //
+
+        $products = Products::truncate();
+        if ($products) {
+            return response()->json(["message"=> "delete with succusfull"]);
+
+        }
     }
 }
