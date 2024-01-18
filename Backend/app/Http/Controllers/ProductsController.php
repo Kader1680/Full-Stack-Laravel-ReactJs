@@ -71,13 +71,16 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $products)
+    public function destroy(Products $products, $id)
     {
 
-        $products = Products::truncate();
-        if ($products) {
-            return response()->json(["message"=> "delete with succusfull"]);
+        $product = Products::find($id);
+        $product->delete();
+        return response()->json(["message"=> "delete with succusfull"]);
 
-        }
+        // $products = Products::truncate();
+        // if ($products) {
+
+        // }
     }
 }
