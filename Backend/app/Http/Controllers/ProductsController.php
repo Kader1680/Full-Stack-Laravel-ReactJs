@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use function Laravel\Prompts\select;
+use function Laravel\Prompts\table;
 
 class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        return Products::select('name', 'description');
+        $idProduct = DB::table("products")->find($id);
+        return $idProduct;
     }
 
     public function store(Request $request)
@@ -24,6 +27,7 @@ class ProductsController extends Controller
             'title'=> "required",
             'description'=> "required",
         ]);
+
 
         $products = new Products();
         $products->title = $request->input("title");
@@ -38,7 +42,7 @@ class ProductsController extends Controller
      */
     public function show(Products $products)
     {
-            return $products::all();
+            return Products::all();
     }
 
     /**
@@ -52,9 +56,16 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $products, $id)
     {
         //
+
+        $product = Products::find($id);
+        $product->title = $request->input("title");
+        $product->description = $request->input("description");
+        $product->update();
+
+        return response()->json(["message"=>"update succsufuly"]);
     }
 
     /**
