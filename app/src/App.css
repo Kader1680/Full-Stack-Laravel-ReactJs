@@ -1,38 +1,354 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #e6e6e6;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navbar {
+  height: 60px;
+  background-color: #45a7af;
+
+  position: relative;
+}
+
+.logo {
+}
+
+.menu-icon {
+  display: none;
+}
+
+.nav-elements {
+}
+
+.nav-elements ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.nav-elements ul li:not(:last-child) {
+  margin-right: 60px;
+}
+
+.nav-elements ul a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2f234f;
+  text-decoration: none;
+}
+
+.nav-elements ul a.active {
+  color: #574c4c;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-elements ul a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #574c4c;
+}
+
+@media (max-width: 768px) {
+  .nav-elements ul li:not(:last-child) {
+    margin-right: 30px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 600px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-elements {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #45a7af;
+    width: 0px;
+    height: calc(100vh - 60px);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+  }
+
+  .nav-elements.active {
+    width: 270px;
+  }
+
+  .nav-elements ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-elements ul li {
+    margin-right: unset;
+    margin-top: 22px;
+  }
+}
+
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 16px;
+  padding: 16px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  h3 {
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  .description {
+    color: #666;
+  }
+
+  .price {
+    font-weight: bold;
+    color: #007bff;
+  }
+}
+
+
+
+.main {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: #dee2e6;
+}
+.main__form {
+  max-width: 30em;
+  padding: 1rem;
+}
+
+.form {
+  color: var(--gray-9);
+  background-color: #dee2e6;
+  display: grid;
+  padding: #dee2e6;
+  width: 100%;
+  border: 1px solid var(--gray-4);
+  border-radius: var(--radius-2);
+}
+.form__linput {
+  display: grid;
+  margin-bottom: var(--size-3);
+}
+.form__label {
+  margin-bottom: var(--size-2);
+}
+.form__input, .form__select {
+  padding: 1em 0.7rem;
+  border: 1px solid var(--gray-4);
+  border-radius: var(--radius-2);
+}
+.form__select {
+  background: inherit;
+}
+.form__textarea {
+  padding: 1em 0.7rem;
+  resize: vertical;
+  border: 1px solid var(--gray-4);
+  border-radius: var(--radius-2);
+  font: inherit;
+}
+.form__btn {
+  margin-right: auto;
+}
+
+.primary-btn {
+  transition: 180ms ease-in;
+  color: var(--gray-0);
+  background-color: rgb(65, 177, 114);
+  padding: 0.7em var(--size-3);
+  border: 0;
+  border-radius: var(--radius-2);
+  cursor: pointer;
+}
+.primary-btn:hover {
+  background-color: red;
+}
+
+
+section 
+{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+
+section span 
+{
+  position: relative;
+  display: block;
+  width: calc(6.25vw - 2px);
+  height: calc(6.25vw - 2px);
+  background: #181818;
+  z-index: 2;
+  transition: 1.5s;
+}
+section span:hover 
+{
+  background: #0f0;
+  transition: 0s;
+}
+
+section .signin
+{
+  position: absolute;
+  width: 400px;
+  background: #222;  
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+section .signin .content 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+section .signin .content h2 
+{
+  font-size: 2em;
+  color: #0f0;
+  text-transform: uppercase;
+}
+section .signin .content .form 
+{
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 25px;
 }
-
-.App-link {
-  color: #61dafb;
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+section .signin .content .form .inputBox input 
+{
+  position: relative;
+  width: 100%;
+  background: #333;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signin .content .form .inputBox i 
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
+.signin .content .form .links 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.signin .content .form .links a 
+{
+  color: #fff;
+  text-decoration: none;
+}
+.signin .content .form .links a:nth-child(2)
+{
+  color: #0f0;
+  font-weight: 600;
+}
+.signin .content .form .inputBox input[type="submit"]
+{
+  padding: 10px;
+  background: #0f0;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+input[type="submit"]:active
+{
+  opacity: 0.6;
+}
+@media (max-width: 900px)
+{
+  section span 
+  {
+    width: calc(10vw - 2px);
+    height: calc(10vw - 2px);
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width: 600px)
+{
+  section span 
+  {
+    width: calc(20vw - 2px);
+    height: calc(20vw - 2px);
   }
 }
