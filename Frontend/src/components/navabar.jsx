@@ -28,7 +28,7 @@ function Navabar() {
               <NavLink to="/all">All Products</NavLink>
             </li>
             <li>
-              <NavLink to="/create">Creatte</NavLink>
+              <NavLink to="/create">Add Prodcuts</NavLink>
             </li>
             <li>
               <NavLink to="/logout">logout</NavLink>

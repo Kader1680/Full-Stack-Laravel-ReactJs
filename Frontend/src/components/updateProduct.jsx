@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useParams} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function UpdateProduct() {
@@ -10,6 +11,7 @@ function UpdateProduct() {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(()=>{
     fetchProducts();
@@ -36,6 +38,8 @@ function UpdateProduct() {
     try {
       const response = await axios.post("http://127.0.0.1:8000/api/product/" + id, formData);
       console.log(response.data.message);
+      navigate("/all")
+
     } catch (error) {
       console.error("Error submitting form:", error);
     }

@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function CreateProduct() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-
+  const navigate = useNavigate();
   const insertProduct = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -18,6 +19,7 @@ function CreateProduct() {
     try {
       const response = await axios.post("http://127.0.0.1:8000/api/create", formData);
       console.log(response.data.message);
+      navigate("/all")
     } catch (error) {
       console.error("Error submitting form:", error);
     }

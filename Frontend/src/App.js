@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
 import UpdateProduct from './components/updateProduct';
 import Register from './components/Register';
 import Login from './components/login';
+import Dashboard from './components/dashboard';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/all" element={<AllProducts  />} />
                 <Route path="/create" element={<CreateProduct />} />
                 <Route path="/all/:id" element={<UpdateProduct />} />
+                <Route path="/dashboard" element={<Dashboard />} />
               
             
         </Routes>

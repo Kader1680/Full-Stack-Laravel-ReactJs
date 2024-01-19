@@ -38,12 +38,15 @@ const AllProducts = () => {
 <div className="product-list">
 {items.map((item) => (
   <div key={item.id} className="product-card">
+    <div className=" d-flex align-items-center justify-content-between">
     <h3>{item.title}</h3>
+    <h4 className="description">{item.price} $ </h4>
+
+    </div>
     <p className="description">{item.description}</p>
-    <p className="description">{item.price} $ </p>
-    <div className=" d-flex justify-content-end">
+    <div className=" d-flex justify-content-end align-items-center">
         <div><Link to={`/all/${item.id}`} className=" text-decoration-none bg-warning p-1 rounded-2 text-white">Update</Link></div>
-        <button  className=" ms-2 text-decoration-none bg-danger p-1 rounded-2 text-white" onClick={()=>{deleteProduct(item.id)}} >Delete</button>
+        <button  className=" border-0 ms-2 text-decoration-none bg-danger p-1 rounded-2 text-white" onClick={()=>{deleteProduct(item.id)}} >Delete</button>
         
     </div>
   </div>
