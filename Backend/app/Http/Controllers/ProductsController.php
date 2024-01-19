@@ -32,6 +32,7 @@ class ProductsController extends Controller
         $products = new Products();
         $products->title = $request->input("title");
         $products->description = $request->input("description");
+        $products->price = $request->input("price");
         $products->save();
 
         return response()->json(['message'=>"products add sucsseful"]);
@@ -62,6 +63,7 @@ class ProductsController extends Controller
 
         $product = Products::find($id);
         $product->title = $request->input("title");
+        $product->price = $request->input("price");
         $product->description = $request->input("description");
         $product->update();
 
