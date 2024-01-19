@@ -39,6 +39,8 @@ Route::patch('/product/{id}', [ProductsController::class, 'update']);
 Route::delete('/product/{id}', [ProductsController::class, 'destroy']);
 
 Route::post('/register', [AuthenticateController::class, 'register']);
+Route::post('/login', [AuthenticateController::class, 'login']);
+Route::post('/logout', [AuthenticateController::class, 'logout']);
 Route::get('/user', [AuthenticateController::class, 'show']);
 Route::get('/dashboard', [Dashboard::class, 'getDataDashboard']);
 Route::get('/dashboard/count', [Dashboard::class, 'count']);

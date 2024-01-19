@@ -30,20 +30,22 @@ function CreateProduct() {
    
 
       <main class="main page__main">
-    <form class="form main__form"  onSubmit={insertProduct} method="POST">
+    <form style={{ backgroundColor:"#1c2664" }} class="form main__form pe-5 ps-5"  onSubmit={insertProduct} method="POST">
+    <h2 className=' text-white'>Create you Own Product</h2>
+      
       <div class="form__linput">
-        <label class="form__label" for="fname">Products Name</label>
-        <input class="form__input" type="text" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title Products..."/>
+        {/* <label class="form__label" for="fname">Products Title</label> */}
+        <input style={{ backgroundClip:"#333333" }} class="mt-3 form__input border-0 rounded-2 " type="text" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title Products..."/>
       </div>
       <div class="form__linput">
-        <label class="form__label" for="lname">Price</label>
-        <input class="form__input" type="text" id="price" name="price" value={price} onChange={(e) => setPrice(e.target.value)}  placeholder="Price Products..."/>
+        {/* <label class="form__label" for="lname">Price</label> */}
+        <input class="mt-3 form__input rounded-2 " type="text" id="price" name="price" value={price} onChange={(e) => setPrice(e.target.value)}  placeholder="Price Products..."/>
       </div>
       <div class="form__linput">
-        <label class="form__label" for="subject">Description</label>
-        <textarea class="form__textarea"type="text" id="description" name="description" value={description} onChange={(e) => setDescription(e.target.value)}  placeholder="Description Products..."  rows="7"></textarea>
+        {/* <label class="form__label" for="subject">Description</label> */}
+        <textarea class="mt-3 form__textarea rounded-2 mb-3"type="text" id="description" name="description" value={description} onChange={(e) => setDescription(e.target.value)}  placeholder="Description Products..."  rows="7"></textarea>
       </div>
-      <button class="primary-btn form__btn" type="submit">Submit</button>
+      <button style={{ width:"100%" }} class="primary-btn form__btn p-3" type="submit">Submit</button>
     </form>
   </main>
     </div>

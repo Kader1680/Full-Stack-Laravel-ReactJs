@@ -23,8 +23,8 @@ const handelRegister = async (e) => {
 
     try {
         const response = await axios.post("http://127.0.0.1:8000/api/register", formData)
+        
         console.log(response.data.message)
-        navigate("/all")
     } catch (error) {
         console.error("Error submitting form:", error);
     }
@@ -32,39 +32,39 @@ const handelRegister = async (e) => {
 }
 
 return (
-    <div>
-        <section> 
+    <div style={{ height:"19rem" }} className=' mt-3 rounded-2'>
+        <section style={{ height:"45rem" }}  className='rounded-2'> 
 
-            <div class="signin"> 
+            <div class="signin rounded-2"> 
 
-                    <div class="content"> 
+                    <div class="content pt-5 text-center"> 
 
                         <h2>Welcome Register</h2> 
 
                         <form method='POST' onSubmit={handelRegister}>
 
-                                <div style={{ backgroundColor:"#222222" }} class="form"> 
+                                <div class="form"> 
 
 
                                     
                                     <div  class="inputBox"> 
 
-                                            <input value={username} onChange={(e)=>{setName(e.target.value)}} style={{ backgroundColor: "#333333" }} type="text" required /> <i>Username</i> 
+                                            <input  value={username} onChange={(e)=>{setName(e.target.value)}}  type="text" required /> <i>Username</i> 
 
                                     </div> 
                                     <div  class="inputBox"> 
 
-                                        <input value={email} onChange={(e)=>{setemail(e.target.value)}} style={{ backgroundColor: "#333333" }} type="text" required /> <i>Email</i> 
+                                        <input value={email} onChange={(e)=>{setemail(e.target.value)}}  type="text" required /> <i>Email</i> 
 
                                     </div> 
                                     <div  class="inputBox"> 
 
-                                        <input value={address} onChange={(e)=>{setaddress(e.target.value)}} style={{ backgroundColor: "#333333" }} type="text" required /> <i>Address</i> 
+                                        <input value={address} onChange={(e)=>{setaddress(e.target.value)}} type="text" required /> <i>Address</i> 
 
                                     </div> 
                                     <div  class="inputBox"> 
 
-                                        <input value={city} onChange={(e)=>{setcity(e.target.value)}} style={{ backgroundColor: "#333333" }} type="text" required /> <i>City</i> 
+                                        <input value={city} onChange={(e)=>{setcity(e.target.value)}}  type="text" required /> <i>City</i> 
 
                                     </div>
                                     <div class="inputBox"> 

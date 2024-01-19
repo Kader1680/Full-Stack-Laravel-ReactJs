@@ -85,11 +85,12 @@ html body{
     position: absolute;
     right: 0;
     top: 60px;
-    background-color: #45a7af;
+    background-color: #110e26;
     width: 0px;
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
     overflow: hidden;
+    z-index: 9999;
   }
 
   .nav-elements.active {
@@ -110,7 +111,7 @@ html body{
 
 .product-list {
   display: grid;
-  grid-template-columns: 50% 50%;
+  
   /* flex-wrap: wrap; */
   /* justify-content: space-around; */
   /* max-width: 800px; */
@@ -164,7 +165,7 @@ html body{
 
 .form {
   color: var(--gray-9);
-  background-color: #dee2e6;
+  /* background-color: #dee2e6; */
   display: grid;
   padding: #dee2e6;
   width: 100%;
@@ -174,6 +175,7 @@ html body{
 .form__linput {
   display: grid;
   margin-bottom: var(--size-3);
+  /* background-color: red; */
 }
 .form__label {
   margin-bottom: var(--size-2);
@@ -195,6 +197,7 @@ html body{
 }
 .form__btn {
   margin-right: auto;
+  
 }
 
 .primary-btn {
@@ -207,7 +210,7 @@ html body{
   cursor: pointer;
 }
 .primary-btn:hover {
-  background-color: red;
+  background-color: rgb(108, 187, 142);
 }
 
 
@@ -244,8 +247,7 @@ section span:hover
 section .signin
 {
   position: absolute;
-  width: 50%;
-  background: #222;  
+  background: #1c2664;  
   z-index: 1000;
   /* display: flex;
   justify-content: center;
@@ -256,6 +258,7 @@ section .signin
 }
 section .signin .content 
 {
+  background-color: #1c2664;
   position: relative;
   /* width: 100%; */
   /* display: flex;
@@ -272,6 +275,7 @@ section .signin .content h2
 }
 section .signin .content .form 
 {
+
   /* width: 100%; */
   /* display: flex;
   flex-direction: column;
@@ -279,20 +283,21 @@ section .signin .content .form
 }
 section .signin .content .form .inputBox
 {
+  margin-top: 2rem;
   position: relative;
+  background-color: #1c2664;
   /* width: 100%; */
 }
 section .signin .content .form .inputBox input 
 {
   position: relative;
   width: 100%;
-  background: #333;
+  background-color: white;
   border: none;
   outline: none;
   padding: 25px 10px 7.5px;
   border-radius: 4px;
-  color: #fff;
-  font-weight: 500;
+    font-weight: 500;
   font-size: 1em;
 }
 section .signin .content .form .inputBox i 
@@ -310,7 +315,7 @@ section .signin .content .form .inputBox i
 {
   transform: translateY(-7.5px);
   font-size: 0.8em;
-  color: #fff;
+  color: black;
 }
 .signin .content .form .links 
 {
@@ -391,8 +396,20 @@ table tr{border-bottom: 1px solid #2b3447;}
     background-color: #070b1f;
     width: 100%;
   }
+  section .signin{
+    width: 100%;
+
+  }
+
 }
 @media(min-width:768px){
+  section .signin{
+    width: 50%;
+
+  }
+  .product-list{
+    grid-template-columns: 50% 50%;
+  }
   .dashboard main{
     background-color: #070b1f;
     width: 20%;
@@ -417,4 +434,11 @@ table tr{border-bottom: 1px solid #2b3447;}
 .adminPanel div{
   background-color: #070b1f;
   color: white;
+}
+
+.error{
+  background-color: #ff6e6e;
+    padding: 12px;
+    color: white;
+    font-weight: 500;
 }
