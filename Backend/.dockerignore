@@ -1,0 +1,25 @@
+
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore venore
+
+.vendor
+
+# storage
+
+storage/logs
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+
+# git
+.git
+.gitignore
+
+# test
+tests/
+phpunit.xml
+
